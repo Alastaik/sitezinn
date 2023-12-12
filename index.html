@@ -25,14 +25,12 @@
       background-color: #363636; /* Cor de fundo do chat */
       margin: 20px auto;
     }
-    input[type="text"] {
-      width: calc(100% - 70px);
+    input[type="text"], input[type="color"] {
       padding: 8px;
       margin-right: 5px;
       border-radius: 5px;
       border: none;
-      background-color: #4e4e4e; /* Cor do campo de texto */
-      color: #fff; /* Cor do texto no campo de texto */
+      color: #fff;
     }
     button {
       padding: 8px 15px;
@@ -55,6 +53,7 @@
 
 <input type="text" id="message" placeholder="Digite sua mensagem...">
 <input type="text" id="username" placeholder="Seu nome...">
+<input type="color" id="colorpicker" value="#ff0000"> <!-- Adiciona o input para selecionar a cor -->
 <button onclick="sendMessage()">Enviar</button>
 
 <!-- Configure o Firebase com suas credenciais -->
@@ -76,11 +75,13 @@ const firebaseConfig = {
   function sendMessage() {
     var message = document.getElementById("message").value;
     var username = document.getElementById("username").value || "Anônimo"; // Pega o nome digitado ou define como "Anônimo" se não houver nome
+    var color = document.getElementById("colorpicker").value; // Pega a cor escolhida pelo usuário
     if (message !== "") {
-      // Envie a mensagem para o Firebase com o nome do usuário
+      // Envie a mensagem para o Firebase com o nome do usuário e a cor da mensagem
       database.ref('mensagens').push().set({
         texto: message,
-        nome: username
+        nome: username,
+        cor: color
       });
       document.getElementById("message").value = "";
     }
@@ -90,7 +91,7 @@ const firebaseConfig = {
   database.ref('mensagens').on('child_added', function(snapshot) {
     var msg = snapshot.val();
     var chatbox = document.getElementById("chatbox");
-    chatbox.innerHTML += "<p>" + msg.nome + ": " + msg.texto + "</p>";
+    chatbox.innerHTML += "<p style='color:" + msg.cor + ";'>" + msg.nome + ": " + msg.texto + "</p>"; // Aplica a cor ao texto da mensagem
   });
 </script>
 
