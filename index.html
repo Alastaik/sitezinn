@@ -7,7 +7,7 @@
     /* Estilos para o chat */
     body {
       font-family: Arial, sans-serif;
-      background-color: #2d2d2d; /* Cor de fundo escura */
+      background-color: #2b2b2b; /* Cor de fundo escura */
       color: #fff; /* Cor do texto */
       margin: 0;
       padding: 0;
@@ -18,7 +18,7 @@
       border: 1px solid #7a7a7a; /* Cor da borda do chat */
       overflow: auto;
       padding: 10px;
-      background-color: #3a3a3a; /* Cor de fundo do chat */
+      background-color: #363636; /* Cor de fundo do chat */
       margin: 20px auto;
     }
     input[type="text"] {
@@ -27,6 +27,8 @@
       margin-right: 5px;
       border-radius: 5px;
       border: none;
+      background-color: #4e4e4e; /* Cor do campo de texto */
+      color: #fff; /* Cor do texto no campo de texto */
     }
     button {
       padding: 8px 15px;
@@ -40,4 +42,26 @@
       background-color: #8b5ec0; /* Cor do botão ao passar o mouse */
     }
   </style>
-</he
+</head>
+<body>
+
+<div id="chatbox">
+  <!-- Aqui é onde as mensagens serão exibidas -->
+</div>
+
+<input type="text" id="message" placeholder="Digite sua mensagem...">
+<button onclick="sendMessage()">Enviar</button>
+
+<script>
+  function sendMessage() {
+    var message = document.getElementById("message").value;
+    if (message !== "") {
+      var chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += "<p>Você: " + message + "</p>";
+      document.getElementById("message").value = "";
+    }
+  }
+</script>
+
+</body>
+</html>
