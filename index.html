@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Chatzin</title>
-  <!-- Adicione o SDK do Firebase -->
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+  <!-- Adicione o SDK do Firebase versão 8 -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 
   <style>
     /* Estilos para o chat */
@@ -23,15 +23,15 @@
 
 <!-- Configure o Firebase com suas credenciais -->
 <script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyDTO5aoCTmnbR4OJGFqU_atgHNoE2zivIQ",
-    authDomain: "sitezin-9a38e.firebaseapp.com",
-    projectId: "sitezin-9a38e",
-    storageBucket: "sitezin-9a38e.appspot.com",
-    messagingSenderId: "87472291779",
-    appId: "1:87472291779:web:5775c79de57a49ba314776",
-    measurementId: "G-706L5PNFRH"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyDTO5aoCTmnbR4OJGFqU_atgHNoE2zivIQ",
+  authDomain: "sitezin-9a38e.firebaseapp.com",
+  projectId: "sitezin-9a38e",
+  storageBucket: "sitezin-9a38e.appspot.com",
+  messagingSenderId: "87472291779",
+  appId: "1:87472291779:web:5775c79de57a49ba314776",
+  measurementId: "G-706L5PNFRH"
+};
 
   // Inicialize o Firebase
   firebase.initializeApp(firebaseConfig);
